@@ -1,28 +1,29 @@
 import React from 'react';
 import { Code, Palette, Rocket } from 'lucide-react';
+import { useApp } from '../contexts/AppContext';
 
 const About = () => {
+  const { t } = useApp();
+
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Sobre Mí
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            {t('about.title')}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Apasionado por la tecnología y el desarrollo web, con experiencia en crear soluciones digitales innovadoras
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            {t('about.subtitle')}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <p className="text-gray-700 leading-relaxed">
-              Soy un desarrollador full-stack con más de 3 años de experiencia en el desarrollo de aplicaciones web modernas. 
-              Me especializo en JavaScript, React y las últimas tecnologías web, siempre buscando crear experiencias de usuario excepcionales.
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              {t('about.description1')}
             </p>
-            <p className="text-gray-700 leading-relaxed">
-              Mi enfoque se centra en escribir código limpio, mantenible y escalable. Disfruto trabajando en equipo y 
-              estoy siempre dispuesto a aprender nuevas tecnologías y enfrentar desafíos interesantes.
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              {t('about.description2')}
             </p>
             <div className="flex space-x-4">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
@@ -38,25 +39,25 @@ const About = () => {
           </div>
 
           <div className="grid gap-6">
-            <div className="bg-gray-50 p-6 rounded-lg">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
               <Code className="h-8 w-8 text-blue-600 mb-3" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Desarrollo Frontend</h3>
-              <p className="text-gray-600">
-                Creación de interfaces de usuario modernas y responsive con React, JavaScript y CSS
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{t('about.frontend')}</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {t('about.frontendDesc')}
               </p>
             </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
               <Palette className="h-8 w-8 text-green-600 mb-3" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">UI/UX Design</h3>
-              <p className="text-gray-600">
-                Diseño de experiencias de usuario intuitivas y atractivas con herramientas modernas
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{t('about.design')}</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {t('about.designDesc')}
               </p>
             </div>
-            <div className="bg-gray-50 p-6 rounded-lg">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
               <Rocket className="h-8 w-8 text-purple-600 mb-3" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Optimización</h3>
-              <p className="text-gray-600">
-                Mejora del rendimiento y SEO para aplicaciones web de alta calidad
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{t('about.optimization')}</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {t('about.optimizationDesc')}
               </p>
             </div>
           </div>

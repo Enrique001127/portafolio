@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useApp } from './contexts/AppContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -34,7 +35,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
       <Header activeSection={activeSection} />
       <main>
         <Hero />
