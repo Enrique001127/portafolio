@@ -1,9 +1,12 @@
 import React from 'react';
 import { Code2, Github, Linkedin, Mail } from 'lucide-react';
+import { useApp } from '../contexts/AppContext';
 
 const Footer = () => {
+  const { t } = useApp();
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 dark:bg-black text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
@@ -12,7 +15,7 @@ const Footer = () => {
               <span className="text-xl font-bold">DevPortfolio</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Desarrollador apasionado por crear experiencias web excepcionales con las últimas tecnologías.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
@@ -28,17 +31,17 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Enlaces</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.links')}</h3>
             <ul className="space-y-2">
-              <li><a href="#home" className="text-gray-400 hover:text-white transition-colors">Inicio</a></li>
-              <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">Sobre mí</a></li>
-              <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors">Habilidades</a></li>
-              <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors">Proyectos</a></li>
+              <li><a href="#home" className="text-gray-400 hover:text-white transition-colors">{t('nav.home')}</a></li>
+              <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">{t('nav.about')}</a></li>
+              <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors">{t('nav.skills')}</a></li>
+              <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors">{t('nav.projects')}</a></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contacto</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('contact.title')}</h3>
             <ul className="space-y-2 text-gray-400">
               <li>tuemailprofesional@gmail.com</li>
               <li>+1 (555) 123-4567</li>
@@ -48,7 +51,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 DevPortfolio. Todos los derechos reservados.</p>
+          <p>&copy; 2024 DevPortfolio. {t('footer.rights')}</p>
         </div>
       </div>
     </footer>
