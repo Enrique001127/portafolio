@@ -18,7 +18,7 @@ const Footer = () => {
               {t('footer.description')}
             </p>
             <div className="flex space-x-4">
-              <a href="https://github.com/Enrique001127/portafolio" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="https://github.com/Enrique001127/portafolio" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Github className="h-6 w-6" />
               </a>
               <a href="https://www.linkedin.com/in/enrique-martín-martínez-434441363" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
