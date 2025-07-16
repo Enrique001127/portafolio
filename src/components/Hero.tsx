@@ -9,21 +9,6 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="space-y-8">
-          {/* Profile Photo */}
-          <div className="flex justify-center mb-8">
-            <div className="relative">
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-xl">
-                <img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400"
-                  alt="Profile"
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              {/* Decorative ring */}
-              <div className="absolute inset-0 rounded-full border-2 border-blue-500/30 animate-pulse"></div>
-            </div>
-          </div>
-          
           <div className="space-y-4">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
               {t('hero.greeting')}{' '}
