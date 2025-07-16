@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Copy, Check } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 
 const Contact = () => {
   const { t } = useApp();
+  const [copiedField, setCopiedField] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
+
+  const copyToClipboard = async (text: string, field: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedField(field);
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,19 +50,45 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-8">
-            <div className="flex items-center space-x-4">
-              <Mail className="h-6 w-6 text-blue-600" />
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('contact.email')}</h3>
-                <p className="text-gray-600 dark:text-gray-300">enrique001127@gmail.com</p>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <Mail className="h-6 w-6 text-blue-600" />
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('contact.email')}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">enrique001127@gmail.com</p>
+                </div>
               </div>
+              <button
+                onClick={() => copyToClipboard('enrique001127@gmail.com', 'email')}
+                className="p-2 text-gray-500 hover:text-blue-600 transition-colors"
+                title="Copiar email"
+              >
+                {copiedField === 'email' ? (
+                  <Check className="h-5 w-5 text-green-600" />
+                ) : (
+                  <Copy className="h-5 w-5" />
+                )}
+              </button>
             </div>
-            <div className="flex items-center space-x-4">
-              <Phone className="h-6 w-6 text-blue-600" />
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('contact.phone')}</h3>
-                <p className="text-gray-600 dark:text-gray-300">+5356261130</p>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <Phone className="h-6 w-6 text-blue-600" />
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('contact.phone')}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">+5356261130</p>
+                </div>
               </div>
+              <button
+                onClick={() => copyToClipboard('+5356261130', 'phone')}
+                className="p-2 text-gray-500 hover:text-blue-600 transition-colors"
+                title="Copiar teléfono"
+              >
+                {copiedField === 'phone' ? (
+                  <Check className="h-5 w-5 text-green-600" />
+                ) : (
+                  <Copy className="h-5 w-5" />
+                )}
+              </button>
             </div>
             <div className="flex items-center space-x-4">
               <MapPin className="h-6 w-6 text-blue-600" />
