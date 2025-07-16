@@ -38,13 +38,13 @@ const Hero = () => {
 
           <div className="flex justify-center space-x-6">
             <a
-              href="#"
+              href="https://github.com/Enrique001127/portafolio" target="_blank" rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors"
             >
               <Github className="h-8 w-8" />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/enrique-martín-martínez-434441363" target="_blank" rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors"
             >
               <Linkedin className="h-8 w-8" />
