@@ -18,13 +18,13 @@ const Footer = () => {
               {t('footer.description')}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="https://github.com/Enrique001127/portafolio" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Github className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="www.linkedin.com/in/enrique-martín-martínez-434441363" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+              <a href="enrique001127@gmail.com" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Mail className="h-6 w-6" />
               </a>
             </div>
@@ -43,15 +43,15 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('contact.title')}</h3>
             <ul className="space-y-2 text-gray-400">
-              <li>tuemailprofesional@gmail.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>Ciudad, País</li>
+              <li>enrique001127@gmail.com</li>
+              <li>+5356261130</li>
+              <li>La Habana, Cuba</li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 DevPortfolio. {t('footer.rights')}</p>
+          <p>&copy; 2025 DevPortfolio.{t('footer.rights')}</p>
         </div>
       </div>
     </footer>

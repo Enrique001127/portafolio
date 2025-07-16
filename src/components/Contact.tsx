@@ -43,21 +43,21 @@ const Contact = () => {
               <Mail className="h-6 w-6 text-blue-600" />
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('contact.email')}</h3>
-                <p className="text-gray-600 dark:text-gray-300">tuemailprofesional@gmail.com</p>
+                <p className="text-gray-600 dark:text-gray-300">enrique001127@gmail.com</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <Phone className="h-6 w-6 text-blue-600" />
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('contact.phone')}</h3>
-                <p className="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
+                <p className="text-gray-600 dark:text-gray-300">+5356261130</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <MapPin className="h-6 w-6 text-blue-600" />
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('contact.location')}</h3>
-                <p className="text-gray-600 dark:text-gray-300">Ciudad, País</p>
+                <p className="text-gray-600 dark:text-gray-300">La Habana, Cuba</p>
               </div>
             </div>
           </div>
