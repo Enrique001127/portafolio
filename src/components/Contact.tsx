@@ -5,6 +5,7 @@ import { useApp } from '../contexts/AppContext';
 const Contact = () => {
   const { t } = useApp();
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [hoveredField, setHoveredField] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -50,7 +51,11 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-8">
-            <div className="flex items-center justify-between">
+            <div 
+              className="relative"
+              onMouseEnter={() => setHoveredField('email')}
+              onMouseLeave={() => setHoveredField(null)}
+            >
               <div className="flex items-center space-x-4">
                 <Mail className="h-6 w-6 text-blue-600" />
                 <div>
@@ -58,19 +63,25 @@ const Contact = () => {
                   <p className="text-gray-600 dark:text-gray-300">enrique001127@gmail.com</p>
                 </div>
               </div>
-              <button
-                onClick={() => copyToClipboard('enrique001127@gmail.com', 'email')}
-                className="p-2 text-gray-500 hover:text-blue-600 transition-colors"
-                title="Copiar email"
-              >
-                {copiedField === 'email' ? (
-                  <Check className="h-5 w-5 text-green-600" />
-                ) : (
-                  <Copy className="h-5 w-5" />
-                )}
-              </button>
+              {(hoveredField === 'email' || copiedField === 'email') && (
+                <button
+                  onClick={() => copyToClipboard('enrique001127@gmail.com', 'email')}
+                  className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 text-gray-500 hover:text-blue-600 transition-colors bg-white dark:bg-gray-800 rounded-full shadow-md"
+                  title="Copiar email"
+                >
+                  {copiedField === 'email' ? (
+                    <Check className="h-4 w-4 text-green-600" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                </button>
+              )}
             </div>
-            <div className="flex items-center justify-between">
+            <div 
+              className="relative"
+              onMouseEnter={() => setHoveredField('phone')}
+              onMouseLeave={() => setHoveredField(null)}
+            >
               <div className="flex items-center space-x-4">
                 <Phone className="h-6 w-6 text-blue-600" />
                 <div>
@@ -78,17 +89,19 @@ const Contact = () => {
                   <p className="text-gray-600 dark:text-gray-300">+5356261130</p>
                 </div>
               </div>
-              <button
-                onClick={() => copyToClipboard('+5356261130', 'phone')}
-                className="p-2 text-gray-500 hover:text-blue-600 transition-colors"
-                title="Copiar teléfono"
-              >
-                {copiedField === 'phone' ? (
-                  <Check className="h-5 w-5 text-green-600" />
-                ) : (
-                  <Copy className="h-5 w-5" />
-                )}
-              </button>
+              {(hoveredField === 'phone' || copiedField === 'phone') && (
+                <button
+                  onClick={() => copyToClipboard('+5356261130', 'phone')}
+                  className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 text-gray-500 hover:text-blue-600 transition-colors bg-white dark:bg-gray-800 rounded-full shadow-md"
+                  title="Copiar teléfono"
+                >
+                  {copiedField === 'phone' ? (
+                    <Check className="h-4 w-4 text-green-600" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                </button>
+              )}
             </div>
             <div className="flex items-center space-x-4">
               <MapPin className="h-6 w-6 text-blue-600" />
