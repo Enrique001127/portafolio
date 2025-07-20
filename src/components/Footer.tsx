@@ -27,7 +27,7 @@ const Footer = () => {
               <a href="mailto:enrique001127@gmail.com" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <Mail className="h-6 w-6" />
               </a>
-              <a href="https://wa.me/5356261130" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-400 transition-colors">
+              <a href="https://wa.me/5356261130" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
                 <MessageCircle className="h-6 w-6" />
               </a>
             </div>
