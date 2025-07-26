@@ -21,7 +21,7 @@ const Hero = () => {
 
           <div className="flex justify-center space-x-6">
             <a
-              href="#"
+              href="https://drive.google.com/file/d/1O4gsIAZtCQSFUK23pEmWx8crYnl14Xdu/view?usp=drive_link"
               className="flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
             >
               <Download className="h-5 w-5" />
