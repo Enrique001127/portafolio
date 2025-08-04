@@ -12,7 +12,6 @@ const Skills = () => {
     { name: 'HTML/CSS', level: 95, color: 'bg-orange-500' },
     { name: 'Tailwind CSS', level: 85, color: 'bg-cyan-500' },
     { name: 'Git', level: 80, color: 'bg-red-500' },
-    { name: 'MongoDB', level: 70, color: 'bg-green-600' }
   ];
 
   return (
