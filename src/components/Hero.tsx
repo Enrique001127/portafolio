@@ -21,7 +21,7 @@ const Hero = () => {
 
           <div className="flex justify-center space-x-6">
             <a
-              href="https://drive.google.com/file/d/1O4gsIAZtCQSFUK23pEmWx8crYnl14Xdu/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1AxnWef5hXdVQyD1Th3VkBIbqPCVTiH9T/view?usp=drive_link"
               download="CV_Enrique_Martin_Martinez.pdf"
               target="_blank"
               rel="noopener noreferrer"
