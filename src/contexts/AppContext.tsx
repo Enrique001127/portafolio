@@ -83,8 +83,8 @@ const translations: Translations = {
   
   // CV Links
   'cv.link': { 
-    es: 'https://drive.google.com/file/d/1AxnWef5hXdVQyD1Th3VkBIbqPCVTiH9T/view?usp=drive_link', 
-    en: 'https://drive.google.com/file/d/1AxnWef5hXdVQyD1Th3VkBIbqPCVTiH9T/view?usp=drive_link' 
+    es: 'https://drive.google.com/file/d/1tgACsvtuloK7k8e2P0wgisSQJCVZDapW/view?usp=drive_link', 
+    en: 'https://drive.google.com/file/d/1tgACsvtuloK7k8e2P0wgisSQJCVZDapW/view?usp=drive_link' 
   },
   'cv.filename': { 
     es: 'CV_Enrique_Martin_Martinez_ES.pdf', 
