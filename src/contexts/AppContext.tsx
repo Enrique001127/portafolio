@@ -79,7 +79,17 @@ const translations: Translations = {
   // Footer
   'footer.description': { es: 'Desarrollador apasionado por crear experiencias web excepcionales con las últimas tecnologías.', en: 'Developer passionate about creating exceptional web experiences with the latest technologies.' },
   'footer.links': { es: 'Enlaces', en: 'Links' },
-  'footer.rights': { es: 'Todos los derechos reservados.', en: 'All rights reserved.' }
+  'footer.rights': { es: 'Todos los derechos reservados.', en: 'All rights reserved.' },
+  
+  // CV Links
+  'cv.link': { 
+    es: 'https://drive.google.com/file/d/1AxnWef5hXdVQyD1Th3VkBIbqPCVTiH9T/view?usp=drive_link', 
+    en: 'https://drive.google.com/file/d/1AxnWef5hXdVQyD1Th3VkBIbqPCVTiH9T/view?usp=drive_link' 
+  },
+  'cv.filename': { 
+    es: 'CV_Enrique_Martin_Martinez_ES.pdf', 
+    en: 'CV_Enrique_Martin_Martinez_EN.pdf' 
+  }
 };
 
 const languages: Language[] = [
