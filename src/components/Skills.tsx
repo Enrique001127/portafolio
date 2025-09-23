@@ -93,7 +93,7 @@ const Skills = () => {
                     {skill.level}%
                   </span>
                   <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-white ml-4 ${getSkillColor(skill.level)}`}>
-                    {skill.level >= 90 ? 'Expert' : skill.level >= 80 ? 'Avanzado' : skill.level >= 70 ? 'Intermedio' : 'Principiante'}
+                    {skill.level >= 90 ? t('skills.expert') : skill.level >= 80 ? t('skills.advanced') : skill.level >= 70 ? t('skills.intermediate') : t('skills.beginner')}
                   </div>
                 </div>
               </div>
@@ -112,7 +112,7 @@ const Skills = () => {
         {/* Additional Skills Tags */}
         <div className="mt-16 text-center">
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-            Otras Tecnologías
+            {t('skills.otherTech')}
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {['Vite', 'Webpack', 'REST APIs', 'JSON', 'NPM', 'Responsive Design', 'SEO', 'Performance Optimization'].map((tech, index) => (

@@ -25,7 +25,6 @@ const translations: Translations = {
   'nav.home': { es: 'Inicio', en: 'Home' },
   'nav.about': { es: 'Sobre mí', en: 'About' },
   'nav.skills': { es: 'Habilidades', en: 'Skills' },
-  'nav.projects': { es: 'Proyectos', en: 'Projects' },
   'nav.contact': { es: 'Contacto', en: 'Contact' },
   
   // Hero
@@ -50,21 +49,13 @@ const translations: Translations = {
   // Skills
   'skills.title': { es: 'Habilidades Técnicas', en: 'Technical Skills' },
   'skills.subtitle': { es: 'Tecnologías y herramientas que domino para crear soluciones web modernas', en: 'Technologies and tools I master to create modern web solutions' },
+  'skills.otherTech': { es: 'Otras Tecnologías', en: 'Other Technologies' },
+  'skills.expert': { es: 'Experto', en: 'Expert' },
+  'skills.advanced': { es: 'Avanzado', en: 'Advanced' },
+  'skills.intermediate': { es: 'Intermedio', en: 'Intermediate' },
+  'skills.beginner': { es: 'Principiante', en: 'Beginner' },
   
   // Projects
-  'projects.title': { es: 'Proyectos Destacados', en: 'Featured Projects' },
-  'projects.subtitle': { es: 'Una selección de proyectos que demuestran mis habilidades técnicas y creatividad', en: 'A selection of projects that demonstrate my technical skills and creativity' },
-  'projects.viewProject': { es: 'Ver proyecto', en: 'View project' },
-  'projects.code': { es: 'Código', en: 'Code' },
-  'projects.ecommerce.title': { es: 'E-commerce Platform', en: 'E-commerce Platform' },
-  'projects.ecommerce.desc': { es: 'Plataforma de comercio electrónico completa con carrito de compras, pagos y gestión de inventario.', en: 'Complete e-commerce platform with shopping cart, payments and inventory management.' },
-  'projects.taskapp.title': { es: 'Task Management App', en: 'Task Management App' },
-  'projects.taskapp.desc': { es: 'Aplicación de gestión de tareas con autenticación de usuarios, tableros Kanban y colaboración en tiempo real.', en: 'Task management application with user authentication, Kanban boards and real-time collaboration.' },
-  'projects.weather.title': { es: 'Weather Dashboard', en: 'Weather Dashboard' },
-  'projects.weather.desc': { es: 'Dashboard del clima con pronósticos, mapas interactivos y alertas personalizadas.', en: 'Weather dashboard with forecasts, interactive maps and personalized alerts.' },
-  'projects.portfolio.title': { es: 'Portfolio Website', en: 'Portfolio Website' },
-  'projects.portfolio.desc': { es: 'Sitio web de portafolio personal con diseño responsivo y animaciones suaves.', en: 'Personal portfolio website with responsive design and smooth animations.' },
-  
   // Contact
   'contact.title': { es: 'Contacto', en: 'Contact' },
   'contact.subtitle': { es: '¿Tienes un proyecto en mente? ¡Hablemos y hagamos realidad tus ideas!', en: 'Do you have a project in mind? Let\'s talk and make your ideas come true!' },
