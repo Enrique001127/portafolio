@@ -18,6 +18,7 @@ interface AppContextType {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
   t: (key: string) => string;
+  scrollTo: (elementId: string) => void;
 }
 
 const translations: Translations = {
@@ -131,13 +132,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return translations[key]?.[language.code] || key;
   };
 
+  const scrollTo = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <AppContext.Provider value={{
       language,
       setLanguage: handleSetLanguage,
       isDarkMode,
       toggleDarkMode,
-      t
+      t,
+      scrollTo
     }}>
       {children}
     </AppContext.Provider>
