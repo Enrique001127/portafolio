@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Copy, Check } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { t } = useApp();
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [hoveredField, setHoveredField] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,12 +24,35 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí puedes integrar con un servicio de email o backend
-    console.log('Form submitted:', formData);
-    alert(t('contact.success'));
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      // Configuración de EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'enrique001127@gmail.com'
+      };
+
+      // Enviar email usando EmailJS
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Reemplaza con tu Service ID
+        'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID
+        templateParams,
+        'YOUR_PUBLIC_KEY' // Reemplaza con tu Public Key
+      );
+
+      alert(t('contact.success'));
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Error al enviar el mensaje. Por favor, intenta de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -123,6 +148,7 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                placeholder="Enrique Martin"
                 required
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
               />
@@ -137,6 +163,7 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                placeholder="enrique@gmail.com"
                 required
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
               />
@@ -150,6 +177,7 @@ const Contact = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
+                placeholder="Para que quieres mis habilidades"
                 rows={4}
                 required
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white"
@@ -157,10 +185,11 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
+              disabled={isSubmitting}
+              className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Send className="h-5 w-5" />
-              <span>{t('contact.send')}</span>
+              <span>{isSubmitting ? 'Enviando...' : t('contact.send')}</span>
             </button>
           </form>
         </div>
