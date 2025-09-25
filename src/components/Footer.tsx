@@ -36,9 +36,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('footer.links')}</h3>
             <ul className="space-y-2">
-              <li><a href="#home" className="text-gray-400 hover:text-white transition-colors">{t('nav.home')}</a></li>
-              <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">{t('nav.about')}</a></li>
-              <li><a href="#skills" className="text-gray-400 hover:text-white transition-colors">{t('nav.skills')}</a></li>
+              <li><button onClick={() => scrollTo('home')} className="text-gray-400 hover:text-white transition-colors">{t('nav.home')}</button></li>
+              <li><button onClick={() => scrollTo('about')} className="text-gray-400 hover:text-white transition-colors">{t('nav.about')}</button></li>
+              <li><button onClick={() => scrollTo('skills')} className="text-gray-400 hover:text-white transition-colors">{t('nav.skills')}</button></li>
             </ul>
           </div>
           

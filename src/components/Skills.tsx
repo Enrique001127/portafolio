@@ -38,7 +38,7 @@ const Skills = () => {
     { 
       name: 'Tailwind CSS', 
       level: 85, 
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
       description: 'Utility-first, Responsive Design, Custom Components'
     },
     { 
