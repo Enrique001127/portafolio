@@ -8,43 +8,43 @@ const Skills = () => {
     { 
       name: 'JavaScript', 
       level: 90, 
-      icon: '🟨',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
       description: 'ES6+, Async/Await, DOM Manipulation'
     },
     { 
       name: 'React', 
       level: 85, 
-      icon: '⚛️',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
       description: 'Hooks, Context API, Component Architecture'
     },
     { 
       name: 'TypeScript', 
       level: 80, 
-      icon: '🔷',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
       description: 'Type Safety, Interfaces, Generics'
     },
     { 
       name: 'Node.js', 
       level: 75, 
-      icon: '🟢',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
       description: 'Express, APIs, Server-side Development'
     },
     { 
       name: 'HTML/CSS', 
       level: 95, 
-      icon: '🎨',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
       description: 'Semantic HTML, Flexbox, Grid, Animations'
     },
     { 
       name: 'Tailwind CSS', 
       level: 85, 
-      icon: '💨',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
       description: 'Utility-first, Responsive Design, Custom Components'
     },
     { 
       name: 'Git', 
       level: 80, 
-      icon: '📚',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
       description: 'Version Control, Branching, Collaboration'
     },
   ];
@@ -68,16 +68,20 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {skills.map((skill, index) => (
             <div 
               key={index} 
-              className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-4">
-                  <div className="text-3xl">
-                    {skill.icon}
+                  <div className="w-12 h-12 flex items-center justify-center">
+                    <img 
+                      src={skill.icon} 
+                      alt={`${skill.name} icon`}
+                      className="w-10 h-10 object-contain"
+                    />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -92,7 +96,7 @@ const Skills = () => {
                   <span className="text-2xl font-bold text-gray-900 dark:text-white">
                     {skill.level}%
                   </span>
-                  <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-white ml-4 ${getSkillColor(skill.level)}`}>
+                  <div className={`block mt-1 px-3 py-1 rounded-full text-xs font-medium text-white ${getSkillColor(skill.level)}`}>
                     {skill.level >= 90 ? t('skills.expert') : skill.level >= 80 ? t('skills.advanced') : skill.level >= 70 ? t('skills.intermediate') : t('skills.beginner')}
                   </div>
                 </div>
