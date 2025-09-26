@@ -52,9 +52,9 @@ const Contact = () => {
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
-        to_name: 'Enrique Martin',
         to_email: 'enrique001127@gmail.com',
-        reply_to: formData.email
+        reply_to: formData.email,
+        email_body: `Nombre: ${formData.name}\n\nEmail: ${formData.email}\n\nMensaje: ${formData.message}`
       };
 
       await emailjs.send(
