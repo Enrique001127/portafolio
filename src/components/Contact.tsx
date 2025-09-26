@@ -18,8 +18,8 @@ const Contact = () => {
 
   // Configuración de EmailJS - Reemplaza con tus credenciales reales
   const EMAILJS_SERVICE_ID = 'service_bolqnfg'; // Tu Service ID
-  const EMAILJS_TEMPLATE_ID = 'template_xxxxxxx'; // Reemplaza con tu Template ID real
-  const EMAILJS_PUBLIC_KEY = 'xxxxxxxxxxxxxxx'; // Reemplaza con tu Public Key real
+  const EMAILJS_TEMPLATE_ID = 'template_j82nd7e'; // Reemplaza con tu Template ID real
+  const EMAILJS_PUBLIC_KEY = 'df2K3M-4pDZ7fQY3R'; // Reemplaza con tu Public Key real
 
   const copyToClipboard = async (text: string, field: string) => {
     try {
