@@ -17,7 +17,7 @@ const Contact = () => {
   });
 
   // Configuración de EmailJS - Reemplaza con tus credenciales reales
-  const EMAILJS_SERVICE_ID = 'service_xxxxxxx'; // Reemplaza con tu Service ID real
+  const EMAILJS_SERVICE_ID = 'service_bolqnfg'; // Tu Service ID
   const EMAILJS_TEMPLATE_ID = 'template_xxxxxxx'; // Reemplaza con tu Template ID real
   const EMAILJS_PUBLIC_KEY = 'xxxxxxxxxxxxxxx'; // Reemplaza con tu Public Key real
 
