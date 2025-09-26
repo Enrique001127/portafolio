@@ -2,17 +2,24 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Copy, Check } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 import emailjs from '@emailjs/browser';
+import Toast from './Toast';
 
 const Contact = () => {
   const { t } = useApp();
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [hoveredField, setHoveredField] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
+
+  // Configuración de EmailJS - Reemplaza con tus credenciales reales
+  const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
 
   const copyToClipboard = async (text: string, field: string) => {
     try {
@@ -29,27 +36,38 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Configuración de EmailJS
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
-        to_email: 'enrique001127@gmail.com'
+        to_name: 'Enrique Martin',
+        to_email: 'enrique001127@gmail.com',
+        reply_to: formData.email
       };
 
-      // Enviar email usando EmailJS
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Reemplaza con tu Service ID
-        'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         templateParams,
-        'YOUR_PUBLIC_KEY' // Reemplaza con tu Public Key
+        EMAILJS_PUBLIC_KEY
       );
 
-      alert(t('contact.success'));
+      // Mostrar notificación de éxito
+      setToast({
+        message: t('contact.successToast'),
+        type: 'success'
+      });
+      
+      // Limpiar formulario
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Error sending email:', error);
-      alert('Error al enviar el mensaje. Por favor, intenta de nuevo.');
+      
+      // Mostrar notificación de error
+      setToast({
+        message: t('contact.errorToast'),
+        type: 'error'
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -194,6 +212,15 @@ const Contact = () => {
           </form>
         </div>
       </div>
+      
+      {/* Toast Notification */}
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
     </section>
   );
 };

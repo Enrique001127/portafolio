@@ -67,6 +67,8 @@ const translations: Translations = {
   'contact.message': { es: 'Mensaje', en: 'Message' },
   'contact.send': { es: 'Enviar mensaje', en: 'Send message' },
   'contact.success': { es: '¡Gracias por tu mensaje! Te contactaré pronto.', en: 'Thank you for your message! I will contact you soon.' },
+  'contact.successToast': { es: 'Su mensaje ha sido enviado correctamente', en: 'Your message has been sent successfully' },
+  'contact.errorToast': { es: 'Error al enviar el mensaje. Inténtalo de nuevo.', en: 'Error sending message. Please try again.' },
   
   // Footer
   'footer.description': { es: 'Desarrollador apasionado por crear experiencias web excepcionales con las últimas tecnologías.', en: 'Developer passionate about creating exceptional web experiences with the latest technologies.' },
