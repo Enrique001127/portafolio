@@ -17,9 +17,9 @@ const Contact = () => {
   });
 
   // Configuración de EmailJS - Reemplaza con tus credenciales reales
-  const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-  const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+  const EMAILJS_SERVICE_ID = 'service_xxxxxxx'; // Reemplaza con tu Service ID real
+  const EMAILJS_TEMPLATE_ID = 'template_xxxxxxx'; // Reemplaza con tu Template ID real
+  const EMAILJS_PUBLIC_KEY = 'xxxxxxxxxxxxxxx'; // Reemplaza con tu Public Key real
 
   const copyToClipboard = async (text: string, field: string) => {
     try {
@@ -33,6 +33,18 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Verificar si las credenciales están configuradas
+    if (EMAILJS_SERVICE_ID.includes('xxxxxxx') || 
+        EMAILJS_TEMPLATE_ID.includes('xxxxxxx') || 
+        EMAILJS_PUBLIC_KEY.includes('xxxxxxx')) {
+      setToast({
+        message: 'EmailJS no está configurado. Por favor configura las credenciales.',
+        type: 'error'
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
