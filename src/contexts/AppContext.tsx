@@ -26,6 +26,7 @@ const translations: Translations = {
   'nav.home': { es: 'Inicio', en: 'Home' },
   'nav.about': { es: 'Sobre mí', en: 'About' },
   'nav.skills': { es: 'Habilidades', en: 'Skills' },
+  'nav.certificates': { es: 'Certificados', en: 'Certificates' },
   'nav.contact': { es: 'Contacto', en: 'Contact' },
   
   // Hero
@@ -56,7 +57,11 @@ const translations: Translations = {
   'skills.intermediate': { es: 'Intermedio', en: 'Intermediate' },
   'skills.beginner': { es: 'Principiante', en: 'Beginner' },
   
-  // Projects
+  // Certificates
+  'certificates.title': { es: 'Certificados', en: 'Certificates' },
+  'certificates.subtitle': { es: 'Certificaciones y logros obtenidos en mi desarrollo profesional', en: 'Certifications and achievements obtained in my professional development' },
+  'certificates.view': { es: 'Ver Certificado', en: 'View Certificate' },
+
   // Contact
   'contact.title': { es: 'Contacto', en: 'Contact' },
   'contact.subtitle': { es: '¿Tienes un proyecto en mente? ¡Hablemos y hagamos realidad tus ideas!', en: 'Do you have a project in mind? Let\'s talk and make your ideas come true!' },

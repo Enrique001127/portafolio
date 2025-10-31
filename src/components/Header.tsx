@@ -20,6 +20,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     { id: 'home', label: t('nav.home') },
     { id: 'about', label: t('nav.about') },
     { id: 'skills', label: t('nav.skills') },
+    { id: 'certificates', label: t('nav.certificates') },
     { id: 'contact', label: t('nav.contact') },
   ];
 

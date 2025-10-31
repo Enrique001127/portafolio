@@ -39,6 +39,7 @@ const Footer = () => {
               <li><button onClick={() => scrollTo('home')} className="text-gray-400 hover:text-white transition-colors">{t('nav.home')}</button></li>
               <li><button onClick={() => scrollTo('about')} className="text-gray-400 hover:text-white transition-colors">{t('nav.about')}</button></li>
               <li><button onClick={() => scrollTo('skills')} className="text-gray-400 hover:text-white transition-colors">{t('nav.skills')}</button></li>
+              <li><button onClick={() => scrollTo('certificates')} className="text-gray-400 hover:text-white transition-colors">{t('nav.certificates')}</button></li>
             </ul>
           </div>
           
