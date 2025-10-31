@@ -12,7 +12,8 @@ const Certificates = () => {
       date: '2024',
       description: 'Certificado de formación en Inteligencia Artificial',
       pdfUrl: 'https://drive.google.com/file/d/1vhTfGTQV1Wky3hArI_OoyC1WrPwW_9kW/view?usp=sharing',
-      previewUrl: 'https://drive.google.com/file/d/1vhTfGTQV1Wky3hArI_OoyC1WrPwW_9kW/preview'
+      previewUrl: 'https://drive.google.com/file/d/1vhTfGTQV1Wky3hArI_OoyC1WrPwW_9kW/preview',
+      thumbnailUrl: 'https://lh3.googleusercontent.com/d/1vhTfGTQV1Wky3hArI_OoyC1WrPwW_9kW=w400'
     }
   ];
 
@@ -35,10 +36,10 @@ const Certificates = () => {
               className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <div className="relative h-64 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center overflow-hidden">
-                <iframe
-                  src={cert.previewUrl}
-                  className="w-full h-full"
-                  title={cert.title}
+                <img
+                  src={cert.thumbnailUrl}
+                  alt={cert.title}
+                  className="w-full h-full object-cover"
                 />
               </div>
 
