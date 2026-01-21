@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Menu, X, Code2, Moon, Sun, Globe } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 
-interface HeaderProps {
-  activeSection: string;
-}
-
-const Header: React.FC<HeaderProps> = ({ activeSection }) => {
+const Header = ({ activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const { language, setLanguage, isDarkMode, toggleDarkMode, t, scrollTo } = useApp();
 
-  const handleScrollTo = (elementId: string) => {
+  const handleScrollTo = (elementId) => {
     scrollTo(elementId);
     setIsMenuOpen(false);
   };
@@ -25,8 +21,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   ];
 
   const languages = [
-    { code: 'es' as const, name: 'Español' },
-    { code: 'en' as const, name: 'English' }
+    { code: 'es', name: 'Español' },
+    { code: 'en', name: 'English' }
   ];
 
   return (
@@ -38,7 +34,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             <span className="text-xl font-bold text-gray-900 dark:text-white">DevPortfolio</span>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
@@ -53,8 +48,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 {item.label}
               </button>
             ))}
-            
-            {/* Language Selector */}
+
             <div className="relative">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
@@ -63,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 <Globe className="h-4 w-4" />
                 <span className="text-sm font-medium">{language.code.toUpperCase()}</span>
               </button>
-              
+
               {isLanguageOpen && (
                 <div className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-800 rounded-md shadow-lg border dark:border-gray-700">
                   {languages.map((lang) => (
@@ -85,8 +79,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 </div>
               )}
             </div>
-            
-            {/* Dark Mode Toggle */}
+
             <button
               onClick={toggleDarkMode}
               className="p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors"
@@ -95,7 +88,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             </button>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -106,7 +98,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden bg-white dark:bg-gray-900 border-t dark:border-gray-700">
             <div className="px-2 pt-2 pb-3 space-y-1">
@@ -123,8 +114,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                   {item.label}
                 </button>
               ))}
-              
-              {/* Mobile Controls */}
+
               <div className="flex items-center justify-between px-3 py-2 border-t dark:border-gray-700 mt-2 pt-4">
                 <div className="flex items-center space-x-2">
                   <Globe className="h-4 w-4 text-gray-600 dark:text-gray-400" />
@@ -143,7 +133,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                     ))}
                   </select>
                 </div>
-                
+
                 <button
                   onClick={toggleDarkMode}
                   className="p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors"

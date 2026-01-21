@@ -1,4 +1,3 @@
-import React from 'react';
 import { Code2, Github, Linkedin, Mail, MessageCircle } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 
@@ -32,7 +31,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('footer.links')}</h3>
             <ul className="space-y-2">
@@ -42,7 +41,7 @@ const Footer = () => {
               <li><button onClick={() => scrollTo('certificates')} className="text-gray-400 hover:text-white transition-colors">{t('nav.certificates')}</button></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('contact.title')}</h3>
             <ul className="space-y-2 text-gray-400">
@@ -51,7 +50,7 @@ const Footer = () => {
               <li>La Habana, Cuba</li>
             </ul>
           </div>
-        </div>        
+        </div>
       </div>
     </footer>
   );

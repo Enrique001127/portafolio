@@ -1,55 +1,48 @@
-import React from 'react';
 import { useApp } from '../contexts/AppContext';
 
 const Skills = () => {
   const { t } = useApp();
 
   const skills = [
-    { 
-      name: 'JavaScript', 
-      level: 90, 
+    {
+      name: 'JavaScript',
+      level: 90,
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
       description: 'ES6+, Async/Await, DOM Manipulation'
     },
-    { 
-      name: 'React', 
-      level: 85, 
+    {
+      name: 'React',
+      level: 85,
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
       description: 'Hooks, Context API, Component Architecture'
     },
-    { 
-      name: 'TypeScript', 
-      level: 80, 
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-      description: 'Type Safety, Interfaces, Generics'
-    },
-    { 
-      name: 'Node.js', 
-      level: 75, 
+    {
+      name: 'Node.js',
+      level: 75,
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
       description: 'Express, APIs, Server-side Development'
     },
-    { 
-      name: 'HTML/CSS', 
-      level: 95, 
+    {
+      name: 'HTML/CSS',
+      level: 95,
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
       description: 'Semantic HTML, Flexbox, Grid, Animations'
     },
-    { 
-      name: 'Tailwind CSS', 
-      level: 85, 
+    {
+      name: 'Tailwind CSS',
+      level: 85,
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
       description: 'Utility-first, Responsive Design, Custom Components'
     },
-    { 
-      name: 'Git', 
-      level: 80, 
+    {
+      name: 'Git',
+      level: 80,
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
       description: 'Version Control, Branching, Collaboration'
     },
   ];
 
-  const getSkillColor = (level: number) => {
+  const getSkillColor = (level) => {
     if (level >= 90) return 'bg-green-500';
     if (level >= 80) return 'bg-blue-500';
     if (level >= 70) return 'bg-yellow-500';
@@ -70,15 +63,15 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {skills.map((skill, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 flex items-center justify-center">
-                    <img 
-                      src={skill.icon} 
+                    <img
+                      src={skill.icon}
                       alt={`${skill.name} icon`}
                       className="w-10 h-10 object-contain"
                     />
@@ -101,10 +94,9 @@ const Skills = () => {
                   </div>
                 </div>
               </div>
-              
-              {/* Progress Bar */}
+
               <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
-                <div 
+                <div
                   className={`h-3 rounded-full transition-all duration-1000 ease-out ${getSkillColor(skill.level)}`}
                   style={{ width: `${skill.level}%` }}
                 ></div>
@@ -113,7 +105,6 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Additional Skills Tags */}
         <div className="mt-16 text-center">
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
             {t('skills.otherTech')}

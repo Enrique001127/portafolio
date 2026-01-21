@@ -1,4 +1,3 @@
-import React from 'react';
 import { Github, Linkedin, Mail, Download } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 

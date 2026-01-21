@@ -1,14 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Check, X } from 'lucide-react';
 
-interface ToastProps {
-  message: string;
-  type: 'success' | 'error';
-  onClose: () => void;
-  duration?: number;
-}
-
-const Toast: React.FC<ToastProps> = ({ message, type, onClose, duration = 5000 }) => {
+const Toast = ({ message, type, onClose, duration = 5000 }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();
@@ -20,8 +13,8 @@ const Toast: React.FC<ToastProps> = ({ message, type, onClose, duration = 5000 }
   return (
     <div className="fixed bottom-4 right-4 z-50 animate-slide-in">
       <div className={`flex items-center space-x-3 px-6 py-4 rounded-lg shadow-lg max-w-sm ${
-        type === 'success' 
-          ? 'bg-green-500 text-white' 
+        type === 'success'
+          ? 'bg-green-500 text-white'
           : 'bg-red-500 text-white'
       }`}>
         <div className="flex-shrink-0">

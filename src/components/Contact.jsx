@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Copy, Check } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 import emailjs from '@emailjs/browser';
@@ -6,22 +6,21 @@ import Toast from './Toast';
 
 const Contact = () => {
   const { t } = useApp();
-  const [copiedField, setCopiedField] = useState<string | null>(null);
-  const [hoveredField, setHoveredField] = useState<string | null>(null);
+  const [copiedField, setCopiedField] = useState(null);
+  const [hoveredField, setHoveredField] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+  const [toast, setToast] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
 
-  // Configuración de EmailJS - Reemplaza con tus credenciales reales
-  const EMAILJS_SERVICE_ID = 'service_bolqnfg'; // Mi Service ID
-  const EMAILJS_TEMPLATE_ID = 'template_j82nd7e'; // Mi Template ID real
-  const EMAILJS_PUBLIC_KEY = 'df2K3M-4pDZ7fQY3R'; // Mi Public Key real
+  const EMAILJS_SERVICE_ID = 'service_bolqnfg';
+  const EMAILJS_TEMPLATE_ID = 'template_j82nd7e';
+  const EMAILJS_PUBLIC_KEY = 'df2K3M-4pDZ7fQY3R';
 
-  const copyToClipboard = async (text: string, field: string) => {
+  const copyToClipboard = async (text, field) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedField(field);
@@ -31,12 +30,11 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Verificar si las credenciales están configuradas
-    if (EMAILJS_SERVICE_ID.includes('xxxxxxx') || 
-        EMAILJS_TEMPLATE_ID.includes('xxxxxxx') || 
+
+    if (EMAILJS_SERVICE_ID.includes('xxxxxxx') ||
+        EMAILJS_TEMPLATE_ID.includes('xxxxxxx') ||
         EMAILJS_PUBLIC_KEY.includes('xxxxxxx')) {
       setToast({
         message: 'EmailJS no está configurado. Por favor configura las credenciales.',
@@ -44,7 +42,7 @@ const Contact = () => {
       });
       return;
     }
-    
+
     setIsSubmitting(true);
 
     try {
@@ -64,18 +62,15 @@ const Contact = () => {
         EMAILJS_PUBLIC_KEY
       );
 
-      // Mostrar notificación de éxito
       setToast({
         message: t('contact.successToast'),
         type: 'success'
       });
-      
-      // Limpiar formulario
+
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Error sending email:', error);
-      
-      // Mostrar notificación de error
+
       setToast({
         message: t('contact.errorToast'),
         type: 'error'
@@ -85,7 +80,7 @@ const Contact = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -106,7 +101,7 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-8">
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => setHoveredField('email')}
               onMouseLeave={() => setHoveredField(null)}
@@ -132,7 +127,7 @@ const Contact = () => {
                 </button>
               )}
             </div>
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => setHoveredField('phone')}
               onMouseLeave={() => setHoveredField(null)}
@@ -224,8 +219,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-      
-      {/* Toast Notification */}
+
       {toast && (
         <Toast
           message={toast.message}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Code, Palette, Rocket } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 

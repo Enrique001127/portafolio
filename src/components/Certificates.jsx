@@ -1,4 +1,3 @@
-import React from 'react';
 import { Award, ExternalLink } from 'lucide-react';
 import { useApp } from '../contexts/AppContext';
 
