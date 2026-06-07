@@ -58,10 +58,10 @@ const Contact = () => {
       };
 
       await emailjs.send(
-        serviceId,
-        templateId,
+        'service_m6mkmd6',
+        'template_j82nd7e',
         templateParams,
-        publicKey
+        'df2K3M-4pDZ7fQY3R'
       );
 
       setToast({
