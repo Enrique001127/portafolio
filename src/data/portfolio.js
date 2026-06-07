@@ -191,7 +191,7 @@ export const CONTACT_FORM_INITIAL_VALUES = {
 };
 
 export const EMAILJS_CONFIG = {
-  serviceId: 'service_bolqnfg',
+  serviceId: 'service_m6mkmd6',
   templateId: 'template_j82nd7e',
   publicKey: 'df2K3M-4pDZ7fQY3R',
   recipientEmail: CONTACT_DETAILS.email,
