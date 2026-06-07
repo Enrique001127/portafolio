@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Enrique Martín Martínez | Frontend Developer</title>
+  <desc id="desc">Imagen de vista previa del portafolio profesional de Enrique Martín Martínez.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1200" y1="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#eff6ff" />
+      <stop offset="1" stop-color="#dbeafe" />
+    </linearGradient>
+    <linearGradient id="accent" x1="170" x2="1030" y1="120" y2="510" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563eb" />
+      <stop offset="1" stop-color="#1e40af" />
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1200" height="630" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="24" stdDeviation="30" flood-color="#1e3a8a" flood-opacity="0.18" />
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)" />
+  <circle cx="1060" cy="80" r="180" fill="#bfdbfe" opacity="0.55" />
+  <circle cx="80" cy="560" r="220" fill="#93c5fd" opacity="0.32" />
+  <rect x="96" y="92" width="1008" height="444" rx="36" fill="#ffffff" filter="url(#shadow)" />
+  <rect x="126" y="122" width="948" height="384" rx="28" fill="url(#accent)" />
+  <text x="170" y="235" fill="#dbeafe" font-family="Arial, sans-serif" font-size="32" font-weight="700" letter-spacing="6">PORTAFOLIO</text>
+  <text x="170" y="320" fill="#ffffff" font-family="Arial, sans-serif" font-size="68" font-weight="800">Enrique Martín Martínez</text>
+  <text x="170" y="395" fill="#bfdbfe" font-family="Arial, sans-serif" font-size="42" font-weight="700">Frontend Developer</text>
+  <text x="170" y="462" fill="#eff6ff" font-family="Arial, sans-serif" font-size="30">React · Vue · Angular · Tailwind CSS</text>
+  <rect x="870" y="186" width="112" height="112" rx="28" fill="#ffffff" opacity="0.95" />
+  <text x="895" y="259" fill="#2563eb" font-family="Arial, sans-serif" font-size="46" font-weight="800">EM</text>
+</svg>

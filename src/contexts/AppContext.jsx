@@ -1,85 +1,23 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-
-const translations = {
-  'nav.home': { es: 'Inicio', en: 'Home' },
-  'nav.about': { es: 'Sobre mí', en: 'About' },
-  'nav.skills': { es: 'Habilidades', en: 'Skills' },
-  'nav.certificates': { es: 'Certificados', en: 'Certificates' },
-  'nav.contact': { es: 'Contacto', en: 'Contact' },
-
-  'hero.greeting': { es: 'Hola, soy', en: 'Hi, I\'m a' },
-  'hero.role': { es: 'Desarrollador', en: 'Developer' },
-  'hero.description': { es: 'Especializado en JavaScript, React y desarrollo web moderno. Creando experiencias digitales excepcionales con código limpio y diseño intuitivo.', en: 'Specialized in JavaScript, React and modern web development. Creating exceptional digital experiences with clean code and intuitive design.' },
-  'hero.downloadCV': { es: 'Descargar CV', en: 'Download CV' },
-  'hero.contact': { es: 'Contactar', en: 'Contact' },
-
-  'about.title': { es: 'Sobre Mí', en: 'About Me' },
-  'about.subtitle': { es: 'Apasionado por la tecnología y el desarrollo web, con experiencia en crear soluciones digitales innovadoras', en: 'Passionate about technology and web development, with experience creating innovative digital solutions' },
-  'about.description1': { es: 'Soy un desarrollador frontend graduado de la Universidad de las Ciencias Informáticas con poca experiencia en el desarrollo de aplicaciones web modernas, pero con ganas de emprender y en constante crecimiento. Me especializo en JavaScript, React y las últimas tecnologías web, siempre buscando crear experiencias de usuario excepcionales.', en: 'I\'m a frontend developer graduated from the University of Computer Sciences with little experience in modern web application development, but with entrepreneurial spirit and constantly growing. I specialize in JavaScript, React and the latest web technologies, always looking to create exceptional user experiences.' },
-  'about.description2': { es: 'Mi enfoque se centra en escribir código limpio, mantenible y escalable. Disfruto trabajando en equipo y estoy siempre dispuesto a aprender nuevas tecnologías y enfrentar desafíos interesantes.', en: 'My approach focuses on writing clean, maintainable and scalable code. I enjoy working in teams and am always willing to learn new technologies and face interesting challenges.' },
-  'about.frontend': { es: 'Desarrollo Frontend', en: 'Frontend Development' },
-  'about.frontendDesc': { es: 'Creación de interfaces de usuario modernas y responsive con React, JavaScript y CSS', en: 'Creating modern and responsive user interfaces with React, JavaScript and CSS' },
-  'about.design': { es: 'UI/UX Design', en: 'UI/UX Design' },
-  'about.designDesc': { es: 'Diseño de experiencias de usuario intuitivas y atractivas con herramientas modernas', en: 'Designing intuitive and attractive user experiences with modern tools' },
-  'about.optimization': { es: 'Optimización', en: 'Optimization' },
-  'about.optimizationDesc': { es: 'Mejora del rendimiento y SEO para aplicaciones web de alta calidad', en: 'Performance and SEO improvement for high-quality web applications' },
-
-  'skills.title': { es: 'Habilidades Técnicas', en: 'Technical Skills' },
-  'skills.subtitle': { es: 'Tecnologías y herramientas que domino para crear soluciones web modernas', en: 'Technologies and tools I master to create modern web solutions' },
-  'skills.otherTech': { es: 'Otras Tecnologías', en: 'Other Technologies' },
-  'skills.expert': { es: 'Experto', en: 'Expert' },
-  'skills.advanced': { es: 'Avanzado', en: 'Advanced' },
-  'skills.intermediate': { es: 'Intermedio', en: 'Intermediate' },
-  'skills.beginner': { es: 'Principiante', en: 'Beginner' },
-
-  'certificates.title': { es: 'Certificados', en: 'Certificates' },
-  'certificates.subtitle': { es: 'Certificaciones y logros obtenidos en mi desarrollo profesional', en: 'Certifications and achievements obtained in my professional development' },
-  'certificates.view': { es: 'Ver Certificado', en: 'View Certificate' },
-
-  'contact.title': { es: 'Contacto', en: 'Contact' },
-  'contact.subtitle': { es: '¿Tienes un proyecto en mente? ¡Hablemos y hagamos realidad tus ideas!', en: 'Do you have a project in mind? Let\'s talk and make your ideas come true!' },
-  'contact.email': { es: 'Email', en: 'Email' },
-  'contact.phone': { es: 'Teléfono', en: 'Phone' },
-  'contact.location': { es: 'Ubicación', en: 'Location' },
-  'contact.name': { es: 'Nombre', en: 'Name' },
-  'contact.message': { es: 'Mensaje', en: 'Message' },
-  'contact.send': { es: 'Enviar mensaje', en: 'Send message' },
-  'contact.success': { es: '¡Gracias por tu mensaje! Te contactaré pronto.', en: 'Thank you for your message! I will contact you soon.' },
-  'contact.successToast': { es: 'Su mensaje ha sido enviado correctamente', en: 'Your message has been sent successfully' },
-  'contact.errorToast': { es: 'Error al enviar el mensaje. Inténtalo de nuevo.', en: 'Error sending message. Please try again.' },
-
-  'footer.description': { es: 'Desarrollador apasionado por crear experiencias web excepcionales con las últimas tecnologías.', en: 'Developer passionate about creating exceptional web experiences with the latest technologies.' },
-  'footer.links': { es: 'Enlaces', en: 'Links' },
-  'footer.rights': { es: 'Todos los derechos reservados.', en: 'All rights reserved.' },
-
-  'cv.link': {
-    es: 'https://drive.google.com/file/d/1tgACsvtuloK7k8e2P0wgisSQJCVZDapW/view?usp=drive_link',
-    en: 'https://drive.google.com/file/d/1tgACsvtuloK7k8e2P0wgisSQJCVZDapW/view?usp=drive_link'
-  },
-  'cv.filename': {
-    es: 'CV_Enrique_Martin_Martinez_ES.pdf',
-    en: 'CV_Enrique_Martin_Martinez_EN.pdf'
-  }
-};
-
-const languages = [
-  { code: 'es', name: 'Español' },
-  { code: 'en', name: 'English' }
-];
-
-const AppContext = createContext(undefined);
+import { useEffect, useState } from 'react';
+import { AppContext } from './AppContextCore';
+import { DEFAULT_LANGUAGE, LANGUAGES, REDUCED_MOTION_QUERY, STORAGE_KEYS } from '../data/portfolio';
+import { translations } from '../data/translations';
 
 export const AppProvider = ({ children }) => {
-  const [language, setLanguage] = useState(languages[0]);
+  const [language, setSelectedLanguage] = useState(DEFAULT_LANGUAGE);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    const savedDarkMode = localStorage.getItem('darkMode');
+    document.documentElement.lang = language.code;
+  }, [language.code]);
+
+  useEffect(() => {
+    const savedLanguageCode = localStorage.getItem(STORAGE_KEYS.language);
+    const savedDarkMode = localStorage.getItem(STORAGE_KEYS.darkMode);
+    const savedLanguage = LANGUAGES.find(({ code }) => code === savedLanguageCode);
 
     if (savedLanguage) {
-      const lang = languages.find(l => l.code === savedLanguage);
-      if (lang) setLanguage(lang);
+      setSelectedLanguage(savedLanguage);
     }
 
     if (savedDarkMode === 'true') {
@@ -88,52 +26,50 @@ export const AppProvider = ({ children }) => {
     }
   }, []);
 
-  const handleSetLanguage = (lang) => {
-    setLanguage(lang);
-    localStorage.setItem('language', lang.code);
+  const selectLanguage = (nextLanguage) => {
+    setSelectedLanguage(nextLanguage);
+    localStorage.setItem(STORAGE_KEYS.language, nextLanguage.code);
   };
 
   const toggleDarkMode = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-    localStorage.setItem('darkMode', newDarkMode.toString());
+    const nextDarkMode = !isDarkMode;
 
-    if (newDarkMode) {
+    setIsDarkMode(nextDarkMode);
+    localStorage.setItem(STORAGE_KEYS.darkMode, nextDarkMode.toString());
+
+    if (nextDarkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
   };
 
-  const t = (key) => {
-    return translations[key]?.[language.code] || key;
+  const translate = (translationKey) => {
+    return translations[translationKey]?.[language.code] || translationKey;
   };
 
-  const scrollTo = (elementId) => {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      const prefersReducedMotion = window.matchMedia(REDUCED_MOTION_QUERY).matches;
+
+      section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     }
   };
 
   return (
-    <AppContext.Provider value={{
-      language,
-      setLanguage: handleSetLanguage,
-      isDarkMode,
-      toggleDarkMode,
-      t,
-      scrollTo
-    }}>
+    <AppContext.Provider
+      value={{
+        language,
+        selectLanguage,
+        isDarkMode,
+        toggleDarkMode,
+        translate,
+        scrollToSection,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
-};
-
-export const useApp = () => {
-  const context = useContext(AppContext);
-  if (context === undefined) {
-    throw new Error('useApp must be used within an AppProvider');
-  }
-  return context;
 };
